@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project Submission Form</title>
+</head>
+<body>
+    <h1>Project Submission Form</h1>
+    <form action="{% url 'submit_project' %}" method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        <label for="title">Project Title:</label><br>
+        <input type="text" id="title" name="title" required><br><br>
+
+        <label for="description">Project Description:</label><br>
+        <textarea id="description" name="description" rows="5" cols="50" required></textarea><br><br>
+
+        <label for="attachment">Attach File (optional):</label><br>
+        <input type="file" id="attachment" name="attachment" accept=".zip, .docx, .pdf"><br><br>
+
+        <input type="submit" value="Submit Project">
+    </form> 
+
+    <!--<form action="/submit_project" method="POST">
+        {% csrf_token %}  # Important for security
+        {{ form.as_p }}  # Renders all form fields
+        <button type="submit">Submit</button>
+    </form> -->
+</body>
+</html>
